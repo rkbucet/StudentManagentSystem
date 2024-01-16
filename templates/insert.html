@@ -1,0 +1,53 @@
+{% extends 'navbar/adminnavbar.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<h1 align="center">Insert Student Details</h1>
+<form action="insert" method="post">
+    {% csrf_token %}
+    <table align="center" class="table table-striped">
+        <tr>
+            <td>Student Name : </td>
+            <td><input type="text" name="tb_name"></td>
+        </tr>
+        <tr>
+            <td>Phone No : </td>
+            <td><input type="number" name="tb_phone"></td>
+        </tr>
+        <tr>
+            <td>Email : </td>
+            <td><input type="email" name="tb_email"></td>
+        </tr>
+        <tr>
+            <td>Fees : </td>
+            <td><input type="number" name="tb_fees"></td>
+        </tr>
+        <tr>
+            <td>City : </td>
+            <td>
+                <select name="ddl_city">
+                    <option>Select City</option>
+                    {% for i in CityData %}
+                    <option>{{ i.city_name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Course : </td>
+            <td>
+                <select name="ddl_course">
+                    <option>Select Course</option>
+                    {% for i in CourseData %}
+                    <option>{{ i.course_name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="Insert" class="btn btn-primary"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

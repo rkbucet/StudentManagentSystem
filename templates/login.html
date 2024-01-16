@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Login {% endblock %}</title>
+</head>
+<body>
+<h2 align="center">Login Page</h2>
+<h3 align="center" style="color:red"> {{ msg }}</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>Username: </td>
+            <td><input type="text" name="tb_username"></td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td><input type="password" name="tb_password"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="btn-login" value="Login"></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'forgetPassword' %}">Forget Password</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'reg' %}" class="btn btn-primary">Register</a></td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>

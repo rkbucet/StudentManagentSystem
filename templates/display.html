@@ -1,0 +1,38 @@
+{% extends 'navbar/adminnavbar.html' %}
+{% load static %}
+{% block title %}
+DisplayData
+{% endblock %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <h2 align="center">Student Details</h2>
+    <table align="center" border="1" class="table table-success table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Student name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Course</th>
+        <th>Fee</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      {% for i in data %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{ i.Student_name }}</td>
+        <td>{{ i.Student_phone}}</td>
+        <td>{{ i.Student_email }}</td>
+        <td>{{ i.Student_city }}</td>
+        <td>{{ i.Student_course }}</td>
+        <td>{{ i.Student_fees }}</td>
+        <td><a href="{% url 'update' i.id %}">Update</a></td>
+        <td><a href="{% url 'del' i.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'navbar//adminnavbar.html' %}
+{% block content%}
+  <h1 align="center">Update Student Details</h1>
+  <form  method="post">
+    {% csrf_token %}
+    <table align="center" class="table table-striped">
+      <tr>
+        <td>Student Name : </td>
+        <td><input type="text" name="tb-name" value="{{ data.Student_name }}"></td>
+      </tr>
+      <tr>
+        <td>Phone No : </td>
+        <td><input type="number" name="tb-phone" value="{{ data.Student_phone }}"></td>
+      </tr>
+      <tr>
+        <td>Email : </td>
+        <td><input type="email" name="tb-email" value="{{ data.Student_email }}"></td>
+      </tr>
+      <tr>
+        <td>City : </td>
+        <td><select name="ddl-city">
+          <option selected>{{ data.Student_city }}</option>
+          {% for i in CityData %}
+            <option>{{ i.city_name }}</option>
+          {% endfor %}
+
+        </select></td>
+      </tr>
+      <tr>
+        <td>Course : </td>
+        <td><select name="ddl-course">
+          <option selected>{{ data.Student_course }}</option>
+          {% for i in CourseData %}
+            <option>{{ i.course_name }}</option>
+          {% endfor %}
+
+        </select></td>
+      </tr>
+      <tr>
+        <td>Fees : </td>
+        <td><input type="number" name="tb-fees" value="{{ data.Student_fees }}"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="UpdateData"></td>
+      </tr>
+    </table>
+  </form>
+{% endblock %}
