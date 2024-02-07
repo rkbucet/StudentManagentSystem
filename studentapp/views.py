@@ -15,7 +15,7 @@ def forgetPassword(request):
         email = request.POST["email"]
         if username == User.objects.filter(username=username) or email == User.objects.filter(email=email):
             data = {'username': username, "email": email }
-        return redirect(request, 'forget.html', data)
+        return redirect(request, 'forget.html', {'data': data})
     else:
         return render(request, 'forget.html')
 

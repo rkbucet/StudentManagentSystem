@@ -1,22 +1,26 @@
 {% extends 'navbar/adminnavbar.html' %}
 {% load static %}
+{% block title %} Forget Password {% endblock %}
 {% block content %}
 <form action="" method="post">
     {% csrf_token %}
-<table align="center" padding="10px">
-    <tr>
-        <td>Enter your Username: </td>
-        <td><input type="text" name="tb_username"></td>
-    </tr>
-    <tr><bold><td></td><td>or</td></bold></tr>
-    <tr>
-        <td>Email: </td>
-        <td><input type="password" name="email"></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><input type="submit" name="btn-login" value="Foget Password"></td>
-    </tr>
-</table>
+    <table align="center" padding="10px">
+        <tr>
+            <td>Enter your Username: </td>
+            <td><input type="text" name="tb_username"></td>
+        </tr>
+        <tr><bold><td></td><td>or</td></bold></tr>
+        <tr>
+            <td>Email: </td>
+            <td><input type="password" name="email"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="btn-login" value="Foget Password"></td>
+        </tr>
+    </table>
+    {% for i in data %}
+        {{ i }}
+    {% endfor %}
 </form>
 {% endblock%}
